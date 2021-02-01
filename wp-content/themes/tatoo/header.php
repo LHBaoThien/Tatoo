@@ -44,4 +44,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 
-	<?php echo get_template_part( 'template-parts/modules/tatoo-modules/modules-module_banner' ); ?>
+	<?php echo get_template_part( 'template-parts/modules/modules_home/module-module_banner' ); ?>

@@ -1,72 +1,76 @@
+<?php
+$a_title = get_field('about_us_title','option');
+$content = get_field('content','option');
+$fb = get_field('facebook','option');
+$tw = get_field('twitter','option');
+$pin = get_field('pinterest','option');
+$rp_title = get_field('recent_post_title','option');
+$list_post = get_field('list_post_ft','option');
+$d_title = get_field('detail_title','option');
+$c_title = get_field('contact_title','option');
+$info_items = get_field('info_items','option');
+$cr = get_field('copy_right','option');
+
+?>
+
+
 <!-- footer -->
+<div id="footer">
 	<div class="footer animated wow bounce" data-wow-duration="1000ms" data-wow-delay="500ms">
 		<div class="footer-grids">
 			<div class="container">
 				<div class="col-md-3 footer-grid">
-					<h4>About Us</h4>
-					<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
-						saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+					<h4><?php echo $a_title?></h4>
+					<p><?php echo $content?></p>
 					<ul class="social-networks square spin-icon">
-						<li><a href="#" class="icon-linkedin"></a></li>
-						<li><a href="#" class="icon-twitter"></a></li>
-						<li><a href="#" class="icon-facebook"></a></li>
+						<li><a href="<?php echo $fb?>" class="icon-linkedin"></a></li>
+						<li><a href="<?php echo $tw?>" class="icon-twitter"></a></li>
+						<li><a href="<?php echo $pin?>" class="icon-facebook"></a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 footer-grid">
-					<h4>Recent Posts</h4>
-					<div class="footer-grid1">
-						<div class="footer-grid1-left">
-							<a href="single.html"><img src="<?php echo TEMPLATE_URL; ?>/assets/images/7.jpg" alt=" " class="img-responsive" /></a>
-						</div>
-						<div class="footer-grid1-right">
-							<a href="single.html">eveniet ut molestiae</a>
-							<div class="more m1">
-								<a href="single.html"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></a>
+					<h4><?php echo $rp_title?></h4>
+
+					<?php foreach ($list_post as $key => $item) {
+						$title_post_service = get_field('title_post_service',$item);
+						$link = get_field('link',$item);
+						$image_service = get_field('image_service',$item);
+						?>
+						<div class="footer-grid1">
+							<div class="footer-grid1-left">
+								<a href="<?php echo $link?>"><img src="<?php echo $image_service?>" alt=" " class="img-responsive" /></a>
 							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="footer-grid1">
-						<div class="footer-grid1-left">
-							<a href="single.html"><img src="<?php echo TEMPLATE_URL; ?>/assets/images/6.jpg" alt=" " class="img-responsive" /></a>
-						</div>
-						<div class="footer-grid1-right">
-							<a href="single.html">qui dolorem fugiat</a>
-							<div class="more m1">
-								<a href="single.html"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></a>
+							<div class="footer-grid1-right">
+								<a href="<?php echo $link?>"><?php echo $title_post_service?></a>
+								<div class="more m1">
+									<a href="<?php echo $link?>"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></a>
+								</div>
 							</div>
+							<div class="clearfix"> </div>
 						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="footer-grid1">
-						<div class="footer-grid1-left">
-							<a href="single.html"><img src="<?php echo TEMPLATE_URL; ?>/assets/images/8.jpg" alt=" " class="img-responsive" /></a>
-						</div>
-						<div class="footer-grid1-right">
-							<a href="single.html">voluptas nulla paria</a>
-							<div class="more m1">
-								<a href="single.html"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></a>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
+
+					<?php } ?>
+
+
 				</div>
 				<div class="col-md-3 footer-grid">
-					<h4>More details</h4>
+					<h4><?php echo $d_title?></h4>
 					<ul class="foot">
-						<li><a href="about.html">About us</a></li>
-						<li><a href="short-codes.html">Short Codes</a></li>
-						<li><a href="#services" class="scroll">Featured Services</a></li>
-						<li><a href="mail.html">Map</a></li>
+						<?php 
+	                        echo bon_get_footer_menu();
+	                     ?>
 					</ul>
 				</div>
 				<div class="col-md-3 footer-grid contact-grid">
-						<h4>Contact us</h4>
+						<h4><?php echo $c_title?></h4>
 						<ul class="foot">
-							<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-								1234 Avenue, 2K Street,<i>4th Cross Building, London.</i></li>
-							<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">info@example.com</a></li>
-							<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+1234 567 789</li>
+							<?php foreach ($info_items as $key => $item) {
+				                $icon = $item['icon'];
+				                $info = $item['info'];
+							    ?>
+								<li><span class="glyphicon glyphicon-<?php echo $icon?>" aria-hidden="true"></span><?php echo $info?></li>
+
+							<?php } ?>
 						</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -74,8 +78,9 @@
 		</div>
 	</div>
 	<div class="copy animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-		 <p>Copyright © 2016 Tattoo. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		 <p><?php echo $cr;?></a></p>
 	</div>
+</div>
 <!-- //footer -->
 <!-- for bootstrap working -->
 	<script src="<?php echo TEMPLATE_URL; ?>/assets/js/bootstrap.js"></script>

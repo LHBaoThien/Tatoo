@@ -1,8 +1,6 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tattoo a Fashion Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,5 +41,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-
-	<?php echo get_template_part( 'template-parts/modules/modules_home/module-module_banner' ); ?>
+	<?php echo get_template_part( 'template-parts/includes/header' ); ?>

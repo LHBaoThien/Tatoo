@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css" />
+<link href="google-places-reviews.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+body {
+	margin: 0;
+	font-size: 14px;
+	font-family: "Open Sans",Tahoma;
+	color: #333333;
+}
+
+#sample-div {
+	width: 300px;
+	margin: 80px auto 50px auto;
+}
+
+#sample-div-2 {
+	width: 800px;
+	margin: 80px auto 50px auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- All parameters -->
+<div id="sample-div" class="gpp-plugin" data-place-id="ChIJH1GIoD2szTER_oobiDOYSh0" data-width="300" data-height="600" data-color="#336699" data-min-rating="1" data-show-business-info="1"></div>
+
+<!-- Required paramters -->
+<div id="sample-div-2" data-place-id="ChIJH1GIoD2szTER_oobiDOYSh0"></div>
+
+<!-- Replace XXXXXXXXX with your API Key -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzj3edUd-ZyGwynw3ZTul4Bb7S7PWPtsk&libraries=places"></script>
+<script src="google-places-reviews.js"></script>
+<script>
+
+// Adding with Javascript
+GooglePlaceReviews.addInstance(document.querySelector('#sample-div-2'));
+
+</script>
+
+</body>
+</html>

@@ -1,34 +1,4 @@
-<!-- header -->
-	<div class="header">
-		<div class="container">
-			<nav class="navbar navbar-default">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed animated flash" data-wow-duration="1500ms" data-wow-delay="500ms" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-					<div class="logo">
-						<a class="navbar-brand animated wow wobble" data-wow-duration="1000ms" data-wow-delay="500ms" href="index.html"><?php echo get_sub_field('title_page')?></a>
-					</div>
-				</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-					<nav class="menu menu--iris">
-						<ul class="nav navbar-nav menu__list">
-							<li class="menu__item menu__item--current"><a href="index.html" class="menu__link">Home</a></li>
-							<li class="menu__item"><a href="about.html" class="menu__link">About Us</a></li>
-							<li class="menu__item"><a href="short-codes.html" class="menu__link">Short Codes</a></li>
-							<li class="menu__item"><a href="mail.html" class="menu__link">Mail Us</a></li>
-						</ul>
-					</nav>
-				</div>
-				<!-- /.navbar-collapse -->
-			</nav>
-			
 			<?php
 				$items= get_sub_field('intro_repeater');
 			?>
@@ -38,20 +8,28 @@
 					<section class="slider">
 						<div class="flexslider">
 							<ul class="slides">
-								<?php foreach ($items as $key => $item) {?>
+								<?php foreach ($items as $key => $item) {
+									$image = $item['image']['url'];
+					                $sub = $item['sub_title'];
+					                $title = $item['title'];
+					                $content = $item['content'];
+					                $fb = $item['facebook'];
+					                $tw = $item['twitter'];
+					                $pin = $item['pinterest'];
+					                ?>
 									<li>
 										<div class="banner-info">
 											<div class="col-md-8 banner-info-left">
-												<h3><span><?php echo $item['sub_title']?></span> <?php echo $item['title']?></h3>
-												<p><?php echo $item['content']?></p>
+												<h3><span><?php echo $sub?></span> <?php echo $title?></h3>
+												<p><?php echo $content?></p>
 												<ul class="social-networks square spin-icon">
-													<li><a href="<?php echo $item['facebook']?>" class="icon-linkedin"></a></li>
-													<li><a href="<?php echo $item['twitter']?>" class="icon-twitter"></a></li>
-													<li><a href="<?php echo $item['pinterest']?>" class="icon-facebook"></a></li>
+													<li><a href="<?php echo $fb?>" class="icon-linkedin"></a></li>
+													<li><a href="<?php echo $tw?>" class="icon-twitter"></a></li>
+													<li><a href="<?php echo $pin?>" class="icon-facebook"></a></li>
 												</ul>
 											</div>
 											<div class="col-md-4 banner-info-right">
-												<img src="<?php echo $item['image']?>" alt=" " class="img-responsive" />
+												<img src="<?php echo $image?>" alt=" " class="img-responsive" />
 											</div>
 											<div class="clearfix"> </div>
 										</div>

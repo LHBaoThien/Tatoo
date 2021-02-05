@@ -359,8 +359,8 @@
                                 "id": ""
                             },
                             "collapsed": "",
-                            "min": 0,
-                            "max": 0,
+                            "min": 2,
+                            "max": 2,
                             "layout": "block",
                             "button_label": "",
                             "sub_fields": [
@@ -713,8 +713,8 @@
                                 "id": ""
                             },
                             "collapsed": "",
-                            "min": 0,
-                            "max": 0,
+                            "min": 3,
+                            "max": 3,
                             "layout": "table",
                             "button_label": "",
                             "sub_fields": [
@@ -795,8 +795,8 @@
                                 "id": ""
                             },
                             "collapsed": "",
-                            "min": 0,
-                            "max": 0,
+                            "min": 2,
+                            "max": 2,
                             "layout": "block",
                             "button_label": "",
                             "sub_fields": [
@@ -908,5 +908,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1612518564
+    "modified": 1612525568
 }

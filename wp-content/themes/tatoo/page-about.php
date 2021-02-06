@@ -58,10 +58,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  	</button>
 
 				  	<?php
-					$logo_text = get_field('logo_text', 'option');
+					$logo_text_1 = get_field('logo_text_1', 'option');
+                    $logo_text_2 = get_field('logo_text_2', 'option');
 					?>
 					<div class="logo">
-						<a class="navbar-brand animated wow wobble" data-wow-duration="1000ms" data-wow-delay="500ms" href=""><?php echo $logo_text?></a>
+						<a class="navbar-brand animated wow wobble" data-wow-duration="1000ms" data-wow-delay="500ms" href=""><span><?php echo $logo_text_1?></span><?php echo $logo_text_2?></a>
 					</div>
 				</div>
 
@@ -69,7 +70,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="menu menu--iris">
 						<?php 
-                        	echo bon_get_main_menu();
+                        	$menu = bon_get_main_menu();
+                        	$menu = str_replace('navigation clearfix', 'nav navbar-nav menu__list" style="font-size: 110%;', $menu);
+                        	$menu = str_replace('menu-item', 'menu__item', $menu);
+                        	$menu = str_replace('<a','<a class="menu__link"', $menu);
+                        	$menu = str_replace('current-menu__item','menu__item--current', $menu);
+							echo $menu;
                     	?>
                     </nav>
 				</div>

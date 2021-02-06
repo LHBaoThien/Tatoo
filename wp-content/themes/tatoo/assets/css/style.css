@@ -1032,7 +1032,7 @@ body a:hover{
     color: #999;
 }
 .mail-right input[type="email"]{
-	margin-left:.3em;
+	margin-left:.5em;
 }
 .mail-right input[type="text"]:nth-child(3){
 	margin:.5em 0;
